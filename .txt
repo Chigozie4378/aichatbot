@@ -1,0 +1,66 @@
+Set-ExecutionPolicy RemoteSigned
+
+Set-ExecutionPolicy Restricted
+
+Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
+
+2.11.0
+-m pip install --upgrade https://storage.googleapis.com/tensorflow/mac/cpu/tensorflow-2.11.0-py3-none-any.whl
+
+python output.py --port 5000
+
+$intents = mysqli_fetch_assoc($result);
+$intents_json = json_encode($intents_json);
+
+// Read the JSON file into a string
+$json_string = file_get_contents("intents.json");
+// Convert the JSON string to a PHP array
+$intents = json_decode($json_string, true);
+// Loop through the intents array
+foreach ($intents['intents'] as $intent) {
+    // Prepare the query
+    $query = "INSERT INTO intents (tag, patterns, responses) VALUES ('" . $intent['tag'] . "', '" . json_encode($intent['patterns']) . "', '" . json_encode($intent['responses']) . "')";
+    // Execute the query
+    mysqli_query($conn, $query);
+// Close the connection
+mysqli_close($conn);
+
+
+
+
+
+
+
+# Add a feedback button next to the chatbot's response
+$("#response").append("<br><button id='feedback'>Incorrect</button>");
+
+# Listen for the feedback button to be clicked
+$("#feedback").click(function() {
+    // Prompt the user for the correct response
+    var correct_response = prompt("What is the correct response?");
+
+    // Update the intents data in your json file
+    intents["intents"].append({
+        "tag": "new_response",
+        "patterns": [user_input],
+        "responses": [correct_response]
+    });
+
+    // Retrain the model using the updated intents data
+    retrain_model(intents);
+});
+
+function retrain_model(intents_data) {
+    // Preprocess the intents data and retrain the model
+    ...
+    // Save the updated model
+    model.save("aichatmodel.h5",history);
+}
+
+
+onclick="document.getElementById('inputText').value = ''
+
+
+
+
+how do i convert this (2023-01-27 07:37:12) coming from the database to something like this (27 Jan 7:37 pm) using php
